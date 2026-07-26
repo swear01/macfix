@@ -1,0 +1,11 @@
+macfix includes a runtime Objective-C method stub adapted from
+Cubes Without Borders by Kira NT:
+
+  https://github.com/Kira-NT/cubes-without-borders
+  commit b8a757842c8632ee39b83482583be4e2ae5665b0
+  MIT License — Copyright (c) 2024-2026 Kira NT
+
+That project discovered that macOS 26+ AppKit may call
+-[NSWindowDelegate windowWillReturnFieldEditor:toObject:] while changing
+NSWindow styleMask on undecorated GLFW windows, even though the method is
+optional and GLFW's delegate does not implement it.

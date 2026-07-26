@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.swearprom.macfix.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "WindowMixin",
+    "MinecraftMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -1,0 +1,41 @@
+modLoader="javafml"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
+logoFile="assets/macfix/icon.png"
+
+[[mixins]]
+config="macfix.mixins.json"
+
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+authors="swearprom"
+logoFile="assets/macfix/icon.png"
+description='''
+Client-only macOS fixes for Minecraft.
+
+0.1.0 — Quit / styleMask crash (macOS 26+):
+Installs a no-op windowWillReturnFieldEditor:toObject: stub on GLFW's
+NSWindowDelegate. AppKit started calling this optional delegate method when
+changing styleMask on undecorated (borderless / F11) windows; GLFW does not
+implement it, so Command-Q or decoration changes can abort the process with
+NSInvalidArgumentException. This stub returns nil and preserves default AppKit
+behavior.
+
+Loads on non-macOS but no-ops there.
+'''
+
+[[dependencies.${mod_id}]]
+    modId="neoforge"
+    type="required"
+    versionRange="[${neo_version},)"
+    ordering="NONE"
+    side="CLIENT"
+
+[[dependencies.${mod_id}]]
+    modId="minecraft"
+    type="required"
+    versionRange="${minecraft_version_range}"
+    ordering="NONE"
+    side="CLIENT"
